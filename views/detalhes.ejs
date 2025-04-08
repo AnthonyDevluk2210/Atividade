@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Detalhes do Produto</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      padding: 30px;
+    }
+    .container {
+      background: white;
+      padding: 25px;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Detalhes do Produto</h1>
+
+    <p><strong>Nome:</strong> <%= cadastro.nome %></p>
+    <p><strong>Descrição:</strong> <%= cadastro.descricao %></p>
+    <p><strong>Preço:</strong> R$ <%= cadastro.preco %></p>
+
+    <% if (cadastro.imagem) { %>
+      <img src="<%= cadastro.imagem %>" alt="Imagem do produto">
+    <% } %>
+
+    <br><br>
+    <a href="/">← Voltar para a lista</a>
+  </div>
+</body>
+</html>

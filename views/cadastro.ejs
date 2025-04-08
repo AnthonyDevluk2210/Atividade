@@ -1,0 +1,28 @@
+<%- include ("partials/header.ejs") %>
+<body>
+    <%- include ("partials/navbar.ejs") %>
+    <div class="container">
+        <hr>
+        <h1>Produtos</h1>
+        <hr>
+        <a href="/cadastrar" class="btn-primary">Cadastrar</a>
+        <% cadastros.forEach(function(p) { %> <!-- Alterado para 'produtos' -->
+            <br>
+            <br>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><%= p.nome %></h5> <!-- Exibindo o nome do produto -->
+                    <p class="card-text"><%= p.descricao %></p> <!-- Exibindo a descrição do produto -->
+                    <p class="card-text">Preço: R$ <%= p.preco.toFixed(2) %></p> <!-- Exibindo o preço formatado -->
+                    <% if (p.imagem) { %> <!-- Verificando se há uma imagem -->
+                        <img src="<%= p.imagem %>" alt="<%= p.nome %>" class="img-fluid"> <!-- Exibindo a imagem -->
+                    <% } %>
+                </div>
+                <div class="card-footer">
+                    <a href="/cadastro/<%= p.id %>"><button class="btn btn-primary">Ver Detalhes</button></a> <!-- Link para os detalhes do produto -->
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</body>
+<%- include ("partials/footer.ejs") %>

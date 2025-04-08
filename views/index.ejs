@@ -1,0 +1,32 @@
+<%- include ("partials/header.ejs") %>
+<link rel="stylesheet" href="/css/style.css">
+<body>
+    <%- include ("partials/navbar.ejs") %>
+    <div class="container py-4">
+        <hr>
+        <h1 class="text-center text-primary">Produtos</h1>
+        <hr>
+        <div class="text-center mb-4">
+            <a href="/cadastrar" class="btn btn-success">Cadastrar Novo Produto</a>
+        </div>
+        <div class="row">
+            <% cadastros.forEach(function(p) { %>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm border-0">
+                        <% if (p.imagem) { %>
+                            <img src="<%= p.imagem %>" alt="<%= p.nome %>" class="card-img-top rounded-top">
+                        <% } %>
+                        <div class="card-body">
+                            <h5 class="card-title text-dark font-weight-bold"><%= p.nome %></h5>
+                            <p class="card-text text-muted"><%= p.descricao %></p>
+                        </div>
+                        <div class="card-footer bg-white border-0 text-center">
+                            <a href="/cadastro/<%= p.id %>" class="btn btn-primary">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</body>
+<%- include ("partials/footer.ejs") %>
